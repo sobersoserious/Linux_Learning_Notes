@@ -12,7 +12,7 @@
     1. 检查**system.img**文件属性->**file system.img**
     2. 如果显示**Android sparse image**，而你用的是Linux LE firehose时就会出现卡死
     3. 正确做法是通过==simg2img system.img system_raw.img==的方式可以将**system.img**文件的还原为原始的**raw ext4 image**真实文件系统，此时修改对应的filehose文件例如：**rawprogram0.xml**将filename = "system.img"->"system_raw.img", sparse = "true"->"false"后执行
-   > sudo qdl --storage ufs xbl_s_devprg_ns.melf rawprograw0.xml patch0.xml
+   > sudo qdl --storage ufs xbl_s_devprg_ns.melf rawprogram0.xml patch0.xml
    >> 注：具体烧录指令根据板子实际情况选择对应的文件
 2. **原因**
     1. **Android sparse image**是一种传输格式，其本质是原始的**raw ext4 image**真实文件系统，他可以让刷机速度加快
