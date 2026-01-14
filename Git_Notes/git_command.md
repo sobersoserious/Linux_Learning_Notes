@@ -18,10 +18,14 @@
     | fix | 记录修复的错误 |
     | docs | 更新总README.md目录 |
 12. **git push**:把本地仓库的提交记录同步到远程GitHub仓库
-13. **git status**:查看当前所在分支、哪些文件修改但未提交、哪些文件已staged、哪些文件是不受git管理的
-14. **git restore .**:把“已被Git跟踪的文件”即受git管理的文件恢复到最近一次commit状态
-15. **git clean -fd .**:删除所有未被Git管理的文件/目录
-16. **git clean -nfd .**:查看会删除哪些东西
+13. **git log --oneline**:查看提交历史
+14. **git tag 版本号 历史序列**:在提交的历史序列上创建轻量标签
+15. **git tag -d 版本号**:删除本地标签
+16. **git push origin :refs/tags/版本号**:删除远程仓库origin上的标签版本号
+17. **git status**:查看当前所在分支、哪些文件修改但未提交、哪些文件已staged、哪些文件是不受git管理的
+18. **git restore .**:把“已被Git跟踪的文件”即受git管理的文件恢复到最近一次commit状态
+19. **git clean -fd .**:删除所有未被Git管理的文件/目录
+20. **git clean -nfd .**:查看会删除哪些东西
 
 
 
