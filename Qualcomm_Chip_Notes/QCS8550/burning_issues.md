@@ -6,6 +6,9 @@
 3. **adb devices**:查看板子是否烧录成功，如果烧录成功起成功重启会显示对应编号
 4. **adb root**:转换为root身份
 5. **adb shell**:进入板子的rootfs
+6. **adb reboot bootloader**:板子进入fastboot模式,可以单烧某个片区的内容
+7. **fastboot getvar all**:用于获取Android设备的所有变量信息
+8. **fastboot reboot**:在fastboot模式下重启板子
 
 ### 关于烧录过程过久：
 1. **解决办法**
