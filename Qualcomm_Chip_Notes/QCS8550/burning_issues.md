@@ -8,7 +8,8 @@
 5. **adb shell**:进入板子的rootfs
 6. **adb reboot bootloader**:板子进入fastboot模式,可以单烧某个片区的内容
 7. **fastboot getvar all**:用于获取Android设备的所有变量信息
-8. **fastboot reboot**:在fastboot模式下重启板子
+8. **fastboot flash <片区> <文件名>**:单烧某个片区的内容，具体烧录片区位置可以参考qdl等烧录工具使用的烧录文件
+9. **fastboot reboot**:在fastboot模式下重启板子
 
 ### 关于烧录过程过久：
 1. **解决办法**
