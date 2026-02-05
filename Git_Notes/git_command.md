@@ -28,7 +28,7 @@
 20. **git tag -d 版本号**:删除本地标签
 21. **git status**:查看当前所在分支、哪些文件修改但未提交、哪些文件已staged、哪些文件是不受git管理的
 22. **git restore .**:把“已被Git跟踪的文件”即受git管理的文件恢复到最近一次commit状态
-23. **git restore --ours/theirs**:用于解决合并冲突时选择保留哪个版本,--ours保存本地修改版本，--theirs保存远程修改版本
+23. **git restore --ours/theirs**:用于解决合并冲突时选择保留哪个版本,--ours保存远程merge后的本地修改版本，--theirs保存stash保存的修改版本
 24. **git restore --staged**:取消文件暂存,将文件从暂存区移回工作区,用于取消暂存区不想commit的文件
 25. **git clean -fd .**:删除所有未被Git管理的文件/目录
 26. **git clean -nfd .**:查看会删除哪些东西
