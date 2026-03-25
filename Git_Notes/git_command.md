@@ -33,6 +33,11 @@
 25. **git clean -fd .**:删除所有未被Git管理的文件/目录
 26. **git clean -nfd .**:查看会删除哪些东西
 
+### 完全与仓库同步的git指令(但会删除本地所有修改)
+1. **git submodule update --init --recursive**:更新或初始化Git子模块，并把它们都拉下来
+2. **git clean -xdf**:所有本地临时文件、未跟踪文件都被清理
+3. **git reset --hard**:把当前分支回到最近一次提交状态
+4. **git pull**:从远程拉取最新的代码并合并到本地当前分支
 
 
 
