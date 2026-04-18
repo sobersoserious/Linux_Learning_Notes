@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"id":"727ae41591f7b3c3","type":"group","x":-400,"y":-1260,"width":800,"height":1000,"label":"AP侧"},
+		{"id":"e9e78ed710c3e971","type":"group","x":-282,"y":-1200,"width":534,"height":740,"label":"用户态"},
+		{"id":"69b729319eec545e","type":"group","x":-400,"y":-120,"width":800,"height":380,"label":"LPASS"},
+		{"id":"b301961fa2feefa4","type":"group","x":-310,"y":-60,"width":590,"height":200,"label":"aDSP"},
+		{"id":"875ac53ad572ff7e","type":"group","x":-282,"y":-420,"width":540,"height":110,"label":"内核态"},
+		{"id":"0f25dad62fe6719f","type":"text","text":"**SPF（Signal Processing Framework）**\n- 按参数在aDSP上搭起DSP图\n- 配MI2S控制器寄存器\n- 启动DMA，从共享内存搬PCM数据到MI2S","x":-203,"y":-29,"width":383,"height":149},
+		{"id":"005db9e663142e4e","type":"text","text":"**Codec（编解码芯片）**\n- codec driver 通过I2C 实时配置寄存器\n- 由AP侧的card0配置MCLK\n- DAC转模拟\n- HPOUT输出模拟信号（耳机级）","x":-195,"y":340,"width":369,"height":180},
+		{"id":"64e087984353f2d6","type":"text","text":"**PA（功放芯片）**\n- 放大到几百毫瓦~几瓦","x":-195,"y":580,"width":369,"height":100},
+		{"id":"784580f134857ffa","type":"text","text":"**<center>喇叭</center>**","x":-95,"y":740,"width":169,"height":80},
+		{"id":"7532693e8bedb27d","type":"text","text":"**MI2S控制器（LPAIF）**","x":-136,"y":160,"width":250,"height":60},
+		{"id":"721d1b60834063a7","type":"text","text":"**应用程序（App层）**\n- paplay等","x":-124,"y":-1180,"width":200,"height":100},
+		{"id":"f1d1f1cbf58eb5a1","type":"text","text":"**PulseAudio（用户态音频服务器）**\n- 混音、音量、多应用共享","x":-209,"y":-1040,"width":369,"height":100},
+		{"id":"801f130d96f70107","type":"text","text":"**PAL（平台音频层）（libpal-client.so）**\n- 读resourcemanager.xml\n- 读usecaseKvManager.xml\n- 读backend_conf.xml","x":-209,"y":-900,"width":369,"height":160},
+		{"id":"c45f88f2277dd6f6","type":"text","text":"**AGM（音频图管理）（libagmclient.so和libagmservice.so）**\n- 读*.acdb拿到图参数通过GPR传给SPF\n- 打开 card 100 的 PCM 100 设备（通过 tinyalsa 插件）\n- 调用GPR 用户态库调用ioctl（libgpr.so）","x":-209,"y":-700,"width":369,"height":200},
+		{"id":"a9a56ef888359941","type":"text","text":"**GPR内核驱动**","x":-101,"y":-400,"width":154,"height":60}
+	],
+	"edges":[
+		{"id":"dee6077b5ccde2d3","fromNode":"721d1b60834063a7","fromSide":"bottom","toNode":"f1d1f1cbf58eb5a1","toSide":"top"},
+		{"id":"9d5b540a5026fe69","fromNode":"f1d1f1cbf58eb5a1","fromSide":"bottom","toNode":"801f130d96f70107","toSide":"top"},
+		{"id":"5f42e5839dd3e7ed","fromNode":"801f130d96f70107","fromSide":"bottom","toNode":"c45f88f2277dd6f6","toSide":"top"},
+		{"id":"8a20264e28b607b4","fromNode":"005db9e663142e4e","fromSide":"bottom","toNode":"64e087984353f2d6","toSide":"top"},
+		{"id":"794beaa4f0b2a781","fromNode":"64e087984353f2d6","fromSide":"bottom","toNode":"784580f134857ffa","toSide":"top"},
+		{"id":"c271050b7c3655cd","fromNode":"0f25dad62fe6719f","fromSide":"bottom","toNode":"7532693e8bedb27d","toSide":"top"},
+		{"id":"36a26c537e2fcb46","fromNode":"7532693e8bedb27d","fromSide":"bottom","toNode":"005db9e663142e4e","toSide":"top","label":"I2S信号"},
+		{"id":"30d2877dcc300a77","fromNode":"875ac53ad572ff7e","fromSide":"right","toNode":"005db9e663142e4e","toSide":"right","label":"I2C信号(由codec driver发出)"},
+		{"id":"cb6c0cf682fd1911","fromNode":"69b729319eec545e","fromSide":"right","toNode":"005db9e663142e4e","toSide":"right","label":"MCLK"},
+		{"id":"17ab916f1d83bf1e","fromNode":"c45f88f2277dd6f6","fromSide":"bottom","toNode":"a9a56ef888359941","toSide":"top","label":"ioctl"},
+		{"id":"388c99d8eb92fdea","fromNode":"a9a56ef888359941","fromSide":"bottom","toNode":"0f25dad62fe6719f","toSide":"top","label":"GPR消息"}
+	]
+}

@@ -22,7 +22,7 @@
 #### .config
 1. **bus_type**：0为I2C，1为SPI
 2. **bus_instance**：控制器选择
-3. **slave_config**：如果为I2C则填7为地址，如果为SPI则为CS片选: 0->CS0, 1->CS1
+3. **slave_config**：如果为I2C则填7位地址，如果为SPI则为CS片选: 0->CS0, 1->CS1
 4. **min/max_bus_speed_khz**：总线速率限制
 5. **reg_addr_type**：寄存器地址长度,0->8bit, 1->16bit
 6. **dri_irq_num**：中断号
