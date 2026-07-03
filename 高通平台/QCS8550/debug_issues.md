@@ -8,6 +8,7 @@
 ### 串口调试工具screen
 1. **sudo screen /dev/ttyUSB0 115200**:开启串口打印工具，接到/dev/ttyUSB0口，波特率为115200
 2. **sudo screen -L -Logfile serial.log /dev/ttyUSB0 115200**:-L：开启日志功能 -Logfile serial.log：指定日志文件名
+3. **strings serial.log > serial.txt**：格式转换
 
 ### 安卓自带抓取log工具指令
 1. **adb shell logcat -b all**:查看系统实时log信息(但是只能在系统运行时查看，无法实时查看开机和关机的log)
@@ -18,3 +19,8 @@
 1. **source /usr/local/rb-perf-x86_64/environment-setup-aarch64-oe-linux**:source <交叉编译器的绝对路径>:可以让目前这个终端能够进行交叉编译
 2. **$CC <文件名> -o <编译结果名>**:执行source后交叉编译命令示例。*CC*：环境变量，一般指针对C文件的交叉编译器，类似还有*CXX*:针对CPP文件的交叉编译器。可以通过echo $环境变量名 :查看环境变量内容
 3. **$CC <文件名> -o <编译结果名> -I/usr/.../libdrm -ldrm**:如果出现缺少某个头文件，可以使用这个方法,示例：-I<路径> 添加头文件搜索路径 -l<库名> 链接libdrm库
+
+### 控制引脚输出
+1. **echo 313 > /sys/class/gpio/export**： 打开引脚控制接口
+2. **echo out > /sys/class/gpio/gpio313/direction**：控制引脚输出方向
+3. **echo 1 > /sys/class/gpio/gpio313/value**：控制引脚输出电平
