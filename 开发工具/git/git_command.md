@@ -1,4 +1,4 @@
-### 常用命令记录
+### 一、常用命令记录
 
 1. **git clone git@github.com:GitHub用户名/仓库名.git**:此方式是SHH
 2. **git clone https: //github.com:GitHub用户名/仓库名.git**:此方式是HTTPS
@@ -6,7 +6,7 @@
 4. **git switch**:切换分支
 5. **git switch -c 本地分支名 远程分支名**：首次切换分支，创建远程仓库分支的本地版本
 6. **git remote -v**:查看远程名 + URL
-7. **git remote add <name> <url>**:添加远程仓库，与本地关联
+7. **git remote add name+URL**:添加远程仓库，与本地关联
 8. **git fetch origin**:从远程origin拉取最新分支，更新本地的origin分支的内容，但不会做出修改。
 9. **git rebase remotes/xx**:重写提交历史，把自己的在本地的提交移动到远程新的基点上，最好写全名加上remotes
 10. **git stash push -u**：保存追踪以及未跟踪文件的更改，方便实现单修改文件的提交操作
@@ -37,7 +37,7 @@
 28. **git clean -fd .**:删除所有未被Git管理的文件/目录
 29. **git clean -nfd .**:查看会删除哪些东西
 
-### 完全与仓库同步的git指令(但会删除本地所有修改)
+### 二、完全与仓库同步的git指令(但会删除本地所有修改)
 1. **git submodule update --init --recursive**:更新或初始化Git子模块，并把它们都拉下来
 2. **git clean -xdf**:所有本地临时文件、未跟踪文件都被清理
 3. **git reset --hard**:把当前分支回到最近一次提交状态

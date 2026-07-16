@@ -1,4 +1,4 @@
-### 常用命令记录
+### 一、常用命令记录
 
 1. **docker exec -it -u build 容器名 /bin/bash**:用于在已启动的容器新开一个shell终端，build可替换为root身份进入
 2. **docker stop 容器名**:停止docker
